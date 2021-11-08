@@ -1,0 +1,29 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: com.coffeestorm.dsl.sheetmagic
+Bundle-ManifestVersion: 2
+Bundle-Name: com.coffeestorm.dsl.sheetmagic
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: com.coffeestorm.dsl.sheetmagic; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
+ org.eclipse.xtext.util,
+ org.eclipse.emf.common,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: com.coffeestorm.dsl.sheetmagic.services,
+ com.coffeestorm.dsl.sheetmagic,
+ com.coffeestorm.dsl.sheetmagic.sheetmagic,
+ com.coffeestorm.dsl.sheetmagic.sheetmagic.impl,
+ com.coffeestorm.dsl.sheetmagic.sheetmagic.util,
+ com.coffeestorm.dsl.sheetmagic.parser.antlr,
+ com.coffeestorm.dsl.sheetmagic.generator,
+ com.coffeestorm.dsl.sheetmagic.validation,
+ com.coffeestorm.dsl.sheetmagic.scoping,
+ com.coffeestorm.dsl.sheetmagic.serializer,
+ com.coffeestorm.dsl.sheetmagic.parser.antlr.internal
+Import-Package: org.apache.log4j

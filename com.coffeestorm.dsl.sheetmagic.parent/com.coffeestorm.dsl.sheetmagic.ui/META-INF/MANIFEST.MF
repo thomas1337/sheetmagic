@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: com.coffeestorm.dsl.sheetmagic.ui
+Bundle-ManifestVersion: 2
+Bundle-Name: com.coffeestorm.dsl.sheetmagic.ui
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: com.coffeestorm.dsl.sheetmagic.ui; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: com.coffeestorm.dsl.sheetmagic,
+ com.coffeestorm.dsl.sheetmagic.ide,
+ org.eclipse.xtext.ui,
+ org.eclipse.xtext.ui.shared,
+ org.eclipse.xtext.ui.codetemplates.ui,
+ org.eclipse.ui.editors;bundle-version="3.5.0",
+ org.eclipse.ui.ide;bundle-version="3.5.0",
+ org.eclipse.ui,
+ org.eclipse.compare,
+ org.eclipse.xtext.builder
+Import-Package: org.apache.log4j,
+ org.eclipse.jdt.core
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: com.coffeestorm.dsl.sheetmagic.ui.quickfix,
+ com.coffeestorm.dsl.sheetmagic.ui.internal,
+ com.coffeestorm.dsl.sheetmagic.ui.contentassist
+Bundle-Activator: com.coffeestorm.dsl.sheetmagic.ui.internal.SheetmagicActivator

@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Generator
+Bundle-SymbolicName: com.coffeestorm.dsl.sheetmagic.generator
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: com.coffeestorm.dsl.sheetmagic.generator.Activator
+Bundle-Vendor: COFFEESTORM
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ com.coffeestorm.dsl.sheetmagic;bundle-version="1.0.0",
+ org.eclipse.xtext.generator;bundle-version="2.25.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Automatic-Module-Name: com.coffeestorm.dsl.sheetmagic.generator
+Bundle-ActivationPolicy: lazy

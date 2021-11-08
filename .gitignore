@@ -1,0 +1,22 @@
+*.jar
+about.ini
+
+### ECLIPSE ###
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.log
+
+### MAVEN ###
+target/
+
+### XTEXT ###
+generated/
+src-gen/
+xtext-gen/
+xtend-gen/
+emf-gen/
+*.xml_gen
+*.MF_gen

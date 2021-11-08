@@ -1,0 +1,67 @@
+grammar com.coffeestorm.dsl.sheetmagic.Sheetmagic with org.eclipse.xtext.common.Terminals
+
+generate sheetmagic "http://www.coffeestorm.com/dsl/sheetmagic/Sheetmagic"
+
+Model:
+	'name' name=ID
+	GeneratorOptions?
+	sheets+=Sheet+
+	(
+		parameters+=Parameter |
+		areas+=Area |
+		areaMappings+=AreaMapping |
+		paramterMappings+=ParamterMapping
+	)*
+;
+
+AreaMapping:
+	'map' 'area' name=ID 'to' '(' startRow=INT ',' startCol=INT ',' numRows=INT ',' numCols=INT ')' 'in' sheet=[Sheet]
+;
+
+Area:
+	'area' name=ID (required?='required')? 
+;
+
+Sheet:
+	'sheet' (default?='default')? name=ID ('alias' alias=STRING)?
+;
+
+Argument:
+	name=ID
+;
+
+fragment GeneratorOptions:
+	'options' '{' 
+		createExecutionState?='createExecutionState'
+		createAccessors?='createAccessors'
+	'}'
+;
+
+Parameter:
+	'parameter' name=ID ':' type=Type (required?='required')? 
+;
+
+Type:
+	IntType | StringType | BooleanType | FloatType
+;
+
+IntType:
+	'int'
+;
+
+FloatType:
+	'float'
+;
+
+StringType:
+	'string'
+;
+
+BooleanType:
+	'boolean'
+;
+	
+
+ParamterMapping:
+	'map' 'parameter' name=ID 'as' type=Type (required?='required')? 'to' to=STRING 'in' sheet=[Sheet]
+;
