@@ -1,0 +1,44 @@
+name SaltyLootNew
+
+sheet MemberUebersicht alias "Member Übersicht" 
+sheet Druid alias "Druids"
+sheet Priest alias "Priest"
+sheet Paladin alias "Paladin"
+sheet Shaman alias "Shaman"
+sheet Rogue alias "Rogue"
+sheet Mage alias "Mage"
+sheet Warlock alias "Warlock"
+sheet Hunter alias "Hunter"
+sheet Warrior alias "Warrior"
+sheet LootHistory alias "Loot History"
+sheet LootEintragen alias "Loot eintragen"
+sheet Raidteilnahme alias "Raidteilnahme"
+sheet Raidteilnahme_data alias "Raidteilnahme_data"
+sheet Management alias "Management"
+sheet Translations alias "Translations"
+
+map area Memberuebersicht_data to (5, 1, 100, 15) in MemberUebersicht
+
+map area Raidteilnahme_playername_col to (4, 1, 150, 1) in Raidteilnahme
+map area Raidteilnahme_magtheridon_col to (4, 3 /*C*/, 150, 1) in Raidteilnahme
+map area Raidteilnahme_magtheridon_sinceJoin_col to (4, 10 /*J*/, 150, 1) in Raidteilnahme
+map area Raidteilnahme_gruul_col to (4, 4 /*D*/, 150, 1) in Raidteilnahme
+map area Raidteilnahme_gruul_sinceJoin_col to (4, 11 /*K*/, 150, 1) in Raidteilnahme
+map area Raidteilnahme_data_attendees_col to (4, 5, 150, 1) in Raidteilnahme_data
+map area Raidteilnahme_data_id_col to (4, 1, 150, 1) in Raidteilnahme_data
+
+map area LootHistory_data to (4, 1 /*K*/, 1000, 11) in LootHistory
+map area Druid_data to (5, 1, 25, 52 /*26x2*/) in Druid
+map area Priest_data to (5, 1, 25, 52 /*26x2*/) in Priest
+map area Paladin_data to (5, 1, 25, 52 /*26x2*/) in Paladin
+map area Shaman_data to (5, 1, 25, 52 /*26x2*/) in Shaman
+map area Rogue_data to (5, 1, 25, 52 /*26x2*/) in Rogue
+map area Mage_data to (5, 1, 25, 52 /*26x2*/) in Mage
+map area Warlock_data to (5, 1, 25, 52 /*26x2*/) in Warlock
+map area Hunter_data to (5, 1, 25, 52 /*26x2*/) in Hunter
+map area Warrior_data to (5, 1, 25, 52 /*26x2*/) in Warrior
+
+map area LootHistory_itemnames to (4, 3 /*C*/, 500, 1) in LootHistory
+map area Translations_map to (2, 1, 150, 2 /* DE,EN */) in Translations
+
+map parameter Raidteilnahme_firstIdDate as string to "P2" in Raidteilnahme_data

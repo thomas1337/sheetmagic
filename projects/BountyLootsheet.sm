@@ -1,0 +1,50 @@
+name Bounty_LootSheet
+
+sheet MemberUebersicht alias "Member Übersicht"
+sheet Dkp alias "DKP"
+sheet LootHistory alias "Loot History"
+sheet LootEintragen alias "Loot eintragen"
+sheet Raidteilnahme alias "Raidteilnahme"
+sheet Raidteilnahme_data alias "Raidteilnahme_data"
+sheet Management alias "Management"
+sheet Translations alias "Translations"
+sheet PlayerDB alias "player_db"
+
+map area Raidteilnahme_playername_col to (4, 1, 150, 1) in Raidteilnahme
+map area Raidteilnahme_magtheridon_col to (4, 3 /*C*/, 150, 1) in Raidteilnahme
+map area Raidteilnahme_magtheridon_sinceJoin_col to (4, 10 /*J*/, 150, 1) in Raidteilnahme
+map area Raidteilnahme_gruul_col to (4, 4 /*D*/, 150, 1) in Raidteilnahme
+map area Raidteilnahme_gruul_sinceJoin_col to (4, 11 /*K*/, 150, 1) in Raidteilnahme
+
+map area Raidteilnahme_data_date_col to (4, 2, 150, 1) in Raidteilnahme_data
+map area Raidteilnahme_data_bench_col to (4, 6, 150, 1) in Raidteilnahme_data
+map area Raidteilnahme_data_attendees_col to (4, 5, 150, 1) in Raidteilnahme_data
+map area Raidteilnahme_data_id_col to (4, 1, 150, 1) in Raidteilnahme_data
+map area Raidteilnahme_data_late_col to (4, 8, 150, 1) in Raidteilnahme_data
+map area Raidteilnahme_data_consumeslack_col to (4, 9, 150, 1) in Raidteilnahme_data
+
+map area Memberuebersicht_nameAndClass to (5, 1, 100, 2) in MemberUebersicht
+map area Memberuebersicht_data to (5, 1, 100, 15) in MemberUebersicht
+map area LootHistory_data to (4, 1 /*K*/, 1000, 11) in LootHistory
+
+map area Dkp_area to (2, 3, 150, 77) in Dkp // 26 * 3 - 2
+map area Dkp_players_area to (3, 1, 150, 1) in Dkp // playernamen spalte
+map area Dkp_playersAndTotal_area to (3, 1, 150, 2) in Dkp // dkp betrag spalte
+
+map area LootHistory_itemnames to (4, 3 /*C*/, 500, 1) in LootHistory
+map area Translations_map to (2, 1, 150, 2 /* DE,EN */) in Translations
+map area Management_twink_associations to (5, 20 /* T */, 18, 4) in Management
+
+map area PlayerDB_playerAndClass to (2, 1, 150, 2) in PlayerDB
+//
+map parameter Raidteilnahme_firstIdDate as string to "P2" in Raidteilnahme_data
+map parameter Management_penalty_consumeslack as int to "B6" in Management
+map parameter Management_penalty_notintime as int to "B7" in Management
+map parameter Management_penalty_inactivity as int to "B8" in Management
+map parameter Management_inactivity_num_weeks as int to "B9" in Management
+map parameter Management_earn_bosskill as int to "B12" in Management
+map parameter Management_earn_cap as int to "B13" in Management
+map parameter Management_earn_attendance as int to "B14" in Management
+map parameter Management_bench_percent_dkp as int to "B15" in Management
+map parameter Management_bench_percent_dkp_after201021 as int to "B16" in Management
+map parameter Management_shared_character_dkp_enabled as boolean to "B21" in Management
