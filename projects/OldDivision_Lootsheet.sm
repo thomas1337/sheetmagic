@@ -1,0 +1,24 @@
+name OldDivision_Lootsheet
+
+sheet MemberUebersicht alias "Member Übersicht"
+sheet PlayerDB alias "Player DB"
+sheet Druid alias "Druids"
+sheet Priest alias "Priest"
+sheet Paladin alias "Paladin"
+sheet Shaman alias "Shaman"
+sheet Rogue alias "Rogue"
+sheet Mage alias "Mage"
+sheet Warlock alias "Warlock"
+sheet Hunter alias "Hunter"
+sheet Warrior alias "Warrior"
+sheet LootHistory alias "Loot History"
+sheet LootEintragen alias "Loot eintragen"
+sheet Wunschliste alias "Wunschliste"
+sheet Translations alias "Translations"
+sheet Management alias "Management"
+
+map area Memberuebersicht_nameAndClass to (5, 1, 100, 2) in MemberUebersicht
+map area Memberuebersicht_data to (5, 1, 100, 15) in MemberUebersicht
+map area LootHistory_data to (4, 1 /*K*/, 1500, 11) in LootHistory
+
+map area PlayerDB_playerAndClass to (2, 1, 150, 2) in PlayerDB
