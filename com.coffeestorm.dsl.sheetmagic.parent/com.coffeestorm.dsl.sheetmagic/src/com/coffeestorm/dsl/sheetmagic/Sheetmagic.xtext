@@ -1,5 +1,7 @@
 grammar com.coffeestorm.dsl.sheetmagic.Sheetmagic with org.eclipse.xtext.common.Terminals
 
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
 generate sheetmagic "http://www.coffeestorm.com/dsl/sheetmagic/Sheetmagic"
 
 Model:
@@ -15,7 +17,11 @@ Model:
 ;
 
 AreaMapping:
-	'map' 'area' name=ID 'to' '(' startRow=INT ',' startCol=INT ',' numRows=INT ',' numCols=INT ')' 'in' sheet=[Sheet]
+	'map' 'area' name=ID 'to' '(' startRow=INT ',' startCol=ColumnIdx ',' numRows=INT ',' numCols=INT ')' 'in' sheet=[Sheet]
+;	
+
+ParamterMapping:
+	'map' 'parameter' name=ID 'as' type=Type (required?='required')? 'to' to=STRING 'in' sheet=[Sheet]
 ;
 
 Area:
@@ -23,11 +29,7 @@ Area:
 ;
 
 Sheet:
-	'sheet' (default?='default')? name=ID ('alias' alias=STRING)?
-;
-
-Argument:
-	name=ID
+	'sheet' name=ID ('alias' alias=STRING)?
 ;
 
 fragment GeneratorOptions:
@@ -58,10 +60,9 @@ StringType:
 ;
 
 BooleanType:
-	'boolean'
+	'boolean' 
 ;
-	
 
-ParamterMapping:
-	'map' 'parameter' name=ID 'as' type=Type (required?='required')? 'to' to=STRING 'in' sheet=[Sheet]
+ColumnIdx returns ecore::EString: 
+	INT | ID
 ;

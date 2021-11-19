@@ -3,6 +3,10 @@
  */
 package com.coffeestorm.dsl.sheetmagic.validation;
 
+import org.eclipse.xtext.validation.Check;
+
+import com.coffeestorm.dsl.sheetmagic.sheetmagic.AreaMapping;
+import com.coffeestorm.dsl.sheetmagic.sheetmagic.SheetmagicPackage;
 
 /**
  * This class contains custom validation rules. 
@@ -11,15 +15,19 @@ package com.coffeestorm.dsl.sheetmagic.validation;
  */
 public class SheetmagicValidator extends AbstractSheetmagicValidator {
 	
-//	public static final String INVALID_NAME = "invalidName";
-//
-//	@Check
-//	public void checkGreetingStartsWithCapital(Greeting greeting) {
-//		if (!Character.isUpperCase(greeting.getName().charAt(0))) {
-//			warning("Name should start with a capital",
-//					SheetmagicPackage.Literals.GREETING__NAME,
-//					INVALID_NAME);
-//		}
-//	}
+	@Check
+	public void checkGreetingStartsWithCapital(AreaMapping mapping) {
+		String startCol = mapping.getStartCol();
+		if (startCol.matches("\\d+")) {
+			// integer
+			return; // OK
+		}
+		if (startCol.matches("[a-zA-Z]+")) {
+			// letter column id
+			return; // OK
+		}
+		error("Invalid column. Use Integer number index or letter index",
+			SheetmagicPackage.Literals.AREA_MAPPING__START_COL);
+	}
 	
 }

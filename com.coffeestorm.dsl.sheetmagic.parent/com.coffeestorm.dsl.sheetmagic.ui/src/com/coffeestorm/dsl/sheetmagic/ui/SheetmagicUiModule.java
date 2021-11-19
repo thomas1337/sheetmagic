@@ -4,6 +4,9 @@
 package com.coffeestorm.dsl.sheetmagic.ui;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.eclipse.xtext.ui.editor.hover.IEObjectHoverProvider;
+
+import com.coffeestorm.dsl.sheetmagic.ui.hover.SheetMagicHoverProvider;
 
 /**
  * Use this class to register components to be used within the Eclipse IDE.
@@ -12,5 +15,9 @@ public class SheetmagicUiModule extends AbstractSheetmagicUiModule {
 
 	public SheetmagicUiModule(AbstractUIPlugin plugin) {
 		super(plugin);
+	}
+	
+	public Class<? extends IEObjectHoverProvider> bindIEObjectHoverProvider() {
+		return SheetMagicHoverProvider.class;
 	}
 }

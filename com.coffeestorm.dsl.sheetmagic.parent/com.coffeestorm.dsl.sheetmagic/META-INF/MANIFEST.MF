@@ -15,15 +15,16 @@ Require-Bundle: org.eclipse.xtext,
  org.eclipse.emf.common,
  org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
 Bundle-RequiredExecutionEnvironment: JavaSE-11
-Export-Package: com.coffeestorm.dsl.sheetmagic.services,
- com.coffeestorm.dsl.sheetmagic,
+Export-Package: com.coffeestorm.dsl.sheetmagic,
+ com.coffeestorm.dsl.sheetmagic.generator,
+ com.coffeestorm.dsl.sheetmagic.parser.antlr,
+ com.coffeestorm.dsl.sheetmagic.parser.antlr.internal,
+ com.coffeestorm.dsl.sheetmagic.scoping,
+ com.coffeestorm.dsl.sheetmagic.serializer,
+ com.coffeestorm.dsl.sheetmagic.services,
  com.coffeestorm.dsl.sheetmagic.sheetmagic,
  com.coffeestorm.dsl.sheetmagic.sheetmagic.impl,
  com.coffeestorm.dsl.sheetmagic.sheetmagic.util,
- com.coffeestorm.dsl.sheetmagic.parser.antlr,
- com.coffeestorm.dsl.sheetmagic.generator,
- com.coffeestorm.dsl.sheetmagic.validation,
- com.coffeestorm.dsl.sheetmagic.scoping,
- com.coffeestorm.dsl.sheetmagic.serializer,
- com.coffeestorm.dsl.sheetmagic.parser.antlr.internal
+ com.coffeestorm.dsl.sheetmagic.utils,
+ com.coffeestorm.dsl.sheetmagic.validation
 Import-Package: org.apache.log4j

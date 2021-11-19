@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import com.coffeestorm.dsl.sheetmagic.utils.Utils
 
 /**
  * Generates code from your model files on save.
@@ -27,7 +28,6 @@ class SheetmagicGenerator extends AbstractGenerator {
 		sheetNamesOut = generateNamesFileContents(model)
 		parametersOut = generateParametersFileContents(model)
 		areasOut = generateAreasFileContents(model)
-		mainOut = generateMainFileContents(model)
 		
 		fsa.generateFile('Names.txt', sheetNamesOut)
 		fsa.generateFile('Parameters.txt', parametersOut)
@@ -40,20 +40,20 @@ class SheetmagicGenerator extends AbstractGenerator {
 		function get«m.name.toFirstUpper»() {
 			const ss =  SpreadsheetApp.getActiveSpreadsheet();
 			const sheet = ss.getSheetByName(get«m.sheet.name»SheetName())
-			return sheet.getRange(«m.startRow», «m.startCol», «m.numRows», «m.numCols»).getValues()
+			return sheet.getRange(«m.startRow», «Utils.convertToIntegerIndex(m.startCol)», «m.numRows», «m.numCols»).getValues()
 		}
 		«ENDFOR»«FOR m : model.areaMappings SEPARATOR "\n"»
 		function get«m.name.toFirstUpper»Range() {
 			const ss =  SpreadsheetApp.getActiveSpreadsheet();
 			const sheet = ss.getSheetByName(get«m.sheet.name»SheetName())
-			return sheet.getRange(«m.startRow», «m.startCol», «m.numRows», «m.numCols»)
+			return sheet.getRange(«m.startRow», «Utils.convertToIntegerIndex(m.startCol)», «m.numRows», «m.numCols»)
 		}
 		
 		function get«m.name.toFirstUpper»StartRow() {
 			return «m.startRow»
 		}
 		function get«m.name.toFirstUpper»StartCol() {
-			return «m.startCol»
+			return «Utils.convertToIntegerIndex(m.startCol)»
 		}
 		function get«m.name.toFirstUpper»NumRows() {
 			return «m.numRows»
@@ -62,23 +62,6 @@ class SheetmagicGenerator extends AbstractGenerator {
 			return «m.numCols»
 		}
 		«ENDFOR»«generatedEndTag»
-		'''
-	}
-	
-	def generateMainFileContents(Model model) {
-		'''«FOR f : model.functions SEPARATOR "\n"»
-		function «f.name»(«FOR arg : f.args SEPARATOR ", "»«arg.name»«ENDFOR») {
-			«generatedStartTag»
-			«FOR r : f.reads»
-			var «r.name.toFirstLower» = get«r.name.toFirstUpper»()
-			«IF r.required»if ("" == «r.name.toFirstLower») {
-			    SpreadsheetApp.getUi().alert("Parameter «r.name» is empty. Script aborted.")
-			    return;
-			}
-			«ENDIF»
-			«ENDFOR»«generatedEndTag»
-		}
-		«ENDFOR»
 		'''
 	}
 	
